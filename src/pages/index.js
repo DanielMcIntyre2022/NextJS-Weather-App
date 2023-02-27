@@ -2,7 +2,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import axios from 'axios'
 import { useState } from 'react';
-import { BsSearch } from 'react-icons';
+import { BsSearch } from 'react-icons/bs';
 
 export default function Home() {
 
@@ -38,6 +38,27 @@ export default function Home() {
           objectFit="contain"
           className='object-cover'
       />
+
+      {/* Search */}
+      <div className='relative flex justify-between 
+      items-center max-w-[500px] w-full m-auto
+      text-white z-10'>
+          <form className='flex justify-between items-center 
+          w-full m-auto p-3 bg-transparent border border-gray-300
+          text-white rounded-2xl'>
+            <div>
+              <input type="text" 
+              placeholder="Search a city"
+              className='bg-transparent border-none
+               text-white focus:outline-none
+               text-2xl'/>
+            </div>
+            <button onClick={fetchWeather}>
+              <BsSearch size={20}/>
+            </button>
+          </form>
+      </div>
+
     </div>
   )
 }
