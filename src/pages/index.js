@@ -10,7 +10,7 @@ export default function Home() {
   const [ weather, setWeather ] = useState({});
   const [ loading, setLoading ] = useState(false);
 
-  const url = `https://api.openweathermap.org/data/2.5/weather?q=toronto&units=imperial&appid=${process.env.NEXT_PUBLIC_WEATHER_KEY}`;
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${process.env.NEXT_PUBLIC_WEATHER_KEY}`;
   console.log(city);
 
   const fetchWeather = (e) => {
@@ -44,7 +44,9 @@ export default function Home() {
       <div className='relative flex justify-between 
       items-center max-w-[500px] w-full m-auto
       text-white z-10'>
-          <form className='flex justify-between items-center 
+          <form 
+          onSubmit={fetchWeather}
+          className='flex justify-between items-center 
           w-full m-auto p-3 bg-transparent border border-gray-300
           text-white rounded-2xl'>
             <div>
