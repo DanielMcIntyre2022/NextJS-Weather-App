@@ -11,6 +11,7 @@ export default function Home() {
   const [ loading, setLoading ] = useState(false);
 
   const url = `https://api.openweathermap.org/data/2.5/weather?q=toronto&units=imperial&appid=${process.env.NEXT_PUBLIC_WEATHER_KEY}`;
+  console.log(city);
 
   const fetchWeather = (e) => {
     e.preventDefault()
@@ -47,7 +48,9 @@ export default function Home() {
           w-full m-auto p-3 bg-transparent border border-gray-300
           text-white rounded-2xl'>
             <div>
-              <input type="text" 
+              <input 
+              onChange={(e) => setCity(e.target.value)}
+              type="text" 
               placeholder="Search a city"
               className='bg-transparent border-none
                text-white focus:outline-none
@@ -58,7 +61,6 @@ export default function Home() {
             </button>
           </form>
       </div>
-
     </div>
   )
 }
